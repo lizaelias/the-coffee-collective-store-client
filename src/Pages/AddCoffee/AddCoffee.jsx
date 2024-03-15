@@ -1,3 +1,4 @@
+import Footer from "../../Footer/Footer";
 
 
 
@@ -79,6 +80,9 @@ const AddCoffee = () => {
                
             
            </form>
+
+
+           <Footer></Footer>
       </div>
 
     );
