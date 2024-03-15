@@ -21,15 +21,15 @@ const Footer = () => {
 
              <h1 className="text-3xl font-bold mt-4 mb-4">Get in Touch</h1>
 
-             <div className="flex gap-x-2 mb-2">
+             <div className="flex gap-x-2 mb-2 items-center">
                 <p><FaPhone></FaPhone></p>
                 <h2>+88 01533 333 333</h2>
              </div>
-             <div className="flex gap-x-2  mb-2">
+             <div className="flex gap-x-2 mb-2 items-center">
                 <p><MdEmail></MdEmail></p>
                 <h2>email info</h2>
              </div>
-             <div className="flex gap-x-2">
+             <div className="flex gap-x-2 items-center">
                 <p><FaLocationArrow></FaLocationArrow></p>
                 <h2>72, Wall street, King Road, Dhaka</h2>
              </div>

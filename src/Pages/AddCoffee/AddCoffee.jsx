@@ -5,6 +5,8 @@ import Footer from "../../Footer/Footer";
 const AddCoffee = () => {
     return (
       <div className="bg-slate-200 py-7 px-4 ">
+             
+             
               <div className="text-center space-y-2 ">
                  <h1 className="text-3xl font-bold mt-10">Update Existing Coffee Details</h1>
                  <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at <br></br> its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed <br></br> to using Content here.</p>
