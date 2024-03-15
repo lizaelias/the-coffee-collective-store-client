@@ -1,10 +1,14 @@
+
+// UpdateCoffee
+
+
 import { Link } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 
-const AddCoffee = () => {
+const UpdateCoffee = () => {
     return (
       <div className="bg-slate-200 py-7 px-4 relative">
 
@@ -14,7 +18,7 @@ const AddCoffee = () => {
              
              
               <div className="text-center space-y-2 ">
-                 <h1 className="text-3xl font-bold mt-10">Add New Coffee</h1>
+                 <h1 className="text-3xl font-bold mt-10">Update Existing Coffee Details</h1>
                  <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at <br></br> its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed <br></br> to using Content here.</p>
 
               </div>
@@ -84,7 +88,7 @@ const AddCoffee = () => {
                </label>
                <input  type="text" placeholder="photo url" name="photo" class="input input-bordered w-full" required />
                </div>
-               <button className=" bg-[#D2B48C] text-xl font-medium w-full mt-10 py-4 rounded-lg hover:bg-violet-600">Add Coffee</button>
+               <button className=" bg-[#D2B48C] text-xl font-medium w-full mt-10 py-4 rounded-lg hover:bg-violet-600">Update Coffee Details</button>
                
             
            </form>
@@ -96,5 +100,6 @@ const AddCoffee = () => {
     );
 };
 
-export default AddCoffee;
+export default UpdateCoffee;
+
 
