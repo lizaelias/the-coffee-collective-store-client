@@ -1,10 +1,60 @@
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { data } from "autoprefixer";
+import Swal from "sweetalert2";
 
 
 
 const AddCoffee = () => {
+
+
+       const handleAddCoffee = e =>{
+
+          e.preventDefault()
+          const form =e.target;
+          const name =form.name.value;
+          const chef = form.chef.value;
+          const supplier =form.supplier.value;
+          const taste = form.taste.value;
+          const category =form.category.value;
+          const details =form.details.value;
+          const photo = form.photo.value;
+
+          const newCoffee ={
+            name,chef,supplier,taste,category,details,photo
+          }
+         
+         console.log(newCoffee)
+
+         fetch('http://localhost:5000/newCoffee',{
+             method: 'POST',
+             headers:{
+               'content-type':'application/json'
+             },
+             body:JSON.stringify(newCoffee)
+
+         })
+         .then(res =>res.json())
+         .then(data =>{
+            console.log(data)
+            if(data.insertedId){
+               
+              Swal.fire({
+              title: 'Success',
+              text: 'AddCoffee has been saved',
+              icon: "success",
+              confirmButtonText: 'Done'
+         
+              })
+
+            }
+         })
+
+
+       }
+
+
     return (
       <div className="bg-slate-200 py-7 px-4 relative">
 
@@ -18,7 +68,7 @@ const AddCoffee = () => {
                  <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at <br></br> its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed <br></br> to using Content here.</p>
 
               </div>
-            <form className="max-w-5xl mx-auto p-5">
+            <form onSubmit={handleAddCoffee} className="max-w-5xl mx-auto p-5">
             <div className="flex gap-4">
                  <div className="w-1/2 border mx-auto mt-3">
                  <div class="w-full">
@@ -51,7 +101,7 @@ const AddCoffee = () => {
                 <div className="w-1/2 border mx-auto mt-3">
                <div class="w-full">
                <label class="label">
-               <span class="label-text">Email</span>
+               <span class="label-text">Taste</span>
                </label>
                <input  type="text" placeholder="Taste" name="taste" class="input input-bordered w-full" required />
                </div>
@@ -80,7 +130,7 @@ const AddCoffee = () => {
             <div className="border mt-3">
              
                <label class="label">
-               <span class="label-text">Phone</span>
+               <span class="label-text">Photo</span>
                </label>
                <input  type="text" placeholder="photo url" name="photo" class="input input-bordered w-full" required />
                </div>

@@ -5,9 +5,14 @@ import TopBanner from '../../Sheard/TopBanner/TopBanner';
 import ImagesGallary from '../../Sheard/ImagesGallary/ImagesGallary';
 import { FaCoffee } from 'react-icons/fa';
 import Producet from '../Producet/Producet';
+import { useLoaderData } from 'react-router-dom';
 
 
 const Home = () => {
+      
+    const coffees =useLoaderData();
+    console.log(coffees)
+
     return (
         <div>
             <Banner></Banner>
@@ -24,9 +29,14 @@ const Home = () => {
                     
                       <span className='text-xl font-bold bg-[#E3B577] text-white gap-x-2 flex justify-center items-center w-44 mx-auto py-2 mt-4 border border-black'>Add Coffee <p><FaCoffee></FaCoffee></p> </span>
                   </div>
-
-                  <div className='mt-10'>
-                   <Producet></Producet>
+               
+               {/* prodects section */}
+                 <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 p-5 max-w-6xl mx-auto '>
+                   
+                {
+                    coffees.map(coffee =><Producet key={coffee._id} coffee={coffee}></Producet>)
+                }
+                 
                   </div>
                 
               </div>
