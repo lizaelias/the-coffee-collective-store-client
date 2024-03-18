@@ -10,6 +10,8 @@ import AddCoffee from "../../Pages/AddCoffee/AddCoffee";
 import EorroPages from "../../EorroPages/EorroPages";
 import UpdateCoffee from "../../Pages/UpdateCoffee/UpdateCoffee";
 import CoffeeDetails from "../../Pages/CoffeeDetails/CoffeeDetails";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
 
 
  const router = createBrowserRouter([
@@ -40,6 +42,16 @@ import CoffeeDetails from "../../Pages/CoffeeDetails/CoffeeDetails";
           element:<CoffeeDetails></CoffeeDetails>,
           loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
           
+        },
+        {
+
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/register',
+          element:<Register></Register>
+
         }
 
       ],

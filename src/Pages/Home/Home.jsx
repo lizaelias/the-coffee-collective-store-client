@@ -46,9 +46,9 @@ const Home = () => {
                 
               </div>
              
-             {/* <div className='mt-32'>
+            <div className='mt-32'>
              <ImagesGallary></ImagesGallary>
-             </div> */}
+             </div> 
          
            
         </div>
