@@ -1,7 +1,7 @@
 import { Form, Link } from "react-router-dom";
-import Footer from "../../Footer/Footer";
+
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { data } from "autoprefixer";
+
 import Swal from "sweetalert2";
 
 
@@ -68,7 +68,7 @@ const AddCoffee = () => {
                  <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at <br></br> its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed <br></br> to using Content here.</p>
 
               </div>
-            <form onSubmit={handleAddCoffee} className="max-w-5xl mx-auto p-5">
+            <form onSubmit={handleAddCoffee} className="max-w-6xl mx-auto p-5">
             <div className="flex gap-4">
                  <div className="w-1/2 border mx-auto mt-3">
                  <div class="w-full">
@@ -140,7 +140,7 @@ const AddCoffee = () => {
            </form>
 
 
-           <Footer></Footer>
+           
       </div>
 
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from './Banner/Banner';
 import RewordSection from '../RewordSection/RewordSection';
 import TopBanner from '../../Sheard/TopBanner/TopBanner';
@@ -9,8 +9,8 @@ import { useLoaderData } from 'react-router-dom';
 
 
 const Home = () => {
-      
-    const coffees =useLoaderData();
+    const loadsCoffees = useLoaderData();
+    const [coffees,setCoffee] =useState(loadsCoffees);
     console.log(coffees)
 
     return (
@@ -34,7 +34,12 @@ const Home = () => {
                  <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 p-5 max-w-6xl mx-auto '>
                    
                 {
-                    coffees.map(coffee =><Producet key={coffee._id} coffee={coffee}></Producet>)
+                    coffees.map(coffee =><Producet 
+                    key={coffee._id} 
+                    coffee={coffee} 
+                    coffees={coffees}
+                    setCoffee={setCoffee}
+                    ></Producet>)
                 }
                  
                   </div>

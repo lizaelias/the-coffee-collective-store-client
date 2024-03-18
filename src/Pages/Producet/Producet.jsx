@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 
-const Producet = ({coffee}) => {
+const Producet = ({coffee,coffees,setCoffee}) => {
     const {_id,photo,name,chef,taste}=coffee;
 
     const handleDelete =(_id)=>{
@@ -32,13 +32,16 @@ const Producet = ({coffee}) => {
             .then(res => res.json())
             .then(data =>{
                 console.log(data)
-                if(data.deletedCount){
+                if(data.deletedCount>0){
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success"
                       });
+                      const remainder =coffees.filter(coffe => coffe._id !== id);
+                      setCoffee(remainder)
                 }
+              
             })
 
 
@@ -61,7 +64,9 @@ const Producet = ({coffee}) => {
                 <h2 className='text-xl font-bold'>taste: {taste}</h2>
              </div>
              <div className='w-16 space-y-2'> 
-                 <p className='bg-[#D2B48C] text-white py-2 hover:bg-violet-600' ><FaEye className='text-3xl mx-auto'></FaEye></p>
+                
+                 <Link to={`/coffee/${_id}`}>  <p className='bg-[#D2B48C] text-white py-2 hover:bg-violet-600' ><FaEye className='text-3xl mx-auto'></FaEye></p></Link>
+
                 <Link to={`/updateCoffee/${_id}`}> <p className='bg-[#3C393B] text-white py-2 mt-1.5 hover:bg-violet-600' ><FaEdit className='text-3xl mx-auto'></FaEdit></p></Link>
                 
                 <p onClick={()=>handleDelete(_id)} className='bg-[#EA4744] text-white py-2 hover:bg-violet-600' ><MdDelete className='text-3xl mx-auto'></MdDelete></p>

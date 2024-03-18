@@ -9,6 +9,7 @@ import Root from "../Root/Root";
 import AddCoffee from "../../Pages/AddCoffee/AddCoffee";
 import EorroPages from "../../EorroPages/EorroPages";
 import UpdateCoffee from "../../Pages/UpdateCoffee/UpdateCoffee";
+import CoffeeDetails from "../../Pages/CoffeeDetails/CoffeeDetails";
 
 
  const router = createBrowserRouter([
@@ -33,7 +34,14 @@ import UpdateCoffee from "../../Pages/UpdateCoffee/UpdateCoffee";
           element:<UpdateCoffee></UpdateCoffee>,
           loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
           
+        },
+        {
+          path:'/coffee/:id',
+          element:<CoffeeDetails></CoffeeDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+          
         }
+
       ],
     },
   ]);

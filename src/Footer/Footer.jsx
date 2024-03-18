@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="bg-slate-200 p-5 mt-10">
 
-      <div className="grid grid-cols-2 gap-6 items-center max-w-5xl mx-auto p-5">
+      <div className="grid grid-cols-2 gap-6 items-center max-w-6xl mx-auto p-5">
 
         <div>
             <img className="w-14" src={footer_logo}alt="" />
