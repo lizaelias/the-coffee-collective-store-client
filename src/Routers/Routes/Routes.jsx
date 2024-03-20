@@ -26,7 +26,7 @@ import PrivateRoutes from "../../Pages/PrivateRoutes/PrivateRoutes";
         {
           path: "/",
           element:<Home></Home>,
-          loader: ()=>fetch('http://localhost:5000/coffee')
+          
         },
         {
           path:'/addCoffee',
@@ -35,13 +35,13 @@ import PrivateRoutes from "../../Pages/PrivateRoutes/PrivateRoutes";
         {
           path:'/updateCoffee/:id',
           element:<PrivateRoutes><UpdateCoffee></UpdateCoffee></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+          loader:({params})=>fetch(`https://the-coffee-collective-store.vercel.app/coffee/${params.id}`)
           
         },
         {
           path:'/coffee/:id',
           element:<CoffeeDetails></CoffeeDetails>,
-          loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+          loader:({params})=>fetch(`https://the-coffee-collective-store.vercel.app/coffee/${params.id}`)
           
         },
         {

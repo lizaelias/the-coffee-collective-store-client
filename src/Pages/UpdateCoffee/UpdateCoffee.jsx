@@ -33,7 +33,7 @@ const UpdateCoffee = () => {
         
        
 
-        fetch(`http://localhost:5000/coffee/${_id}`,{
+        fetch(`https://the-coffee-collective-store.vercel.app/coffee/${_id}`,{
             method:'PUT',
             headers:{
               'content-type':'application/json'

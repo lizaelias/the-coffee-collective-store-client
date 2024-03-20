@@ -25,7 +25,7 @@ const Producet = ({coffee,coffees,setCoffee}) => {
           }).then((result) => {
             if (result.isConfirmed) {
            
-            fetch(`http://localhost:5000/coffee/${_id}`,{
+            fetch(`https://the-coffee-collective-store.vercel.app/coffee/${_id}`,{
                 method:"DELETE"
                
             })

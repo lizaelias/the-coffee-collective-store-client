@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from './Banner/Banner';
 import RewordSection from '../RewordSection/RewordSection';
-import TopBanner from '../../Sheard/TopBanner/TopBanner';
+
 import ImagesGallary from '../../Sheard/ImagesGallary/ImagesGallary';
 import { FaCoffee } from 'react-icons/fa';
 import Producet from '../Producet/Producet';
-import { useLoaderData } from 'react-router-dom';
 
 
 const Home = () => {
-    const loadsCoffees = useLoaderData();
-    const [coffees,setCoffee] =useState(loadsCoffees);
+    // const loadsCoffees = useLoaderData();
+
+     
+    const [coffees,setCoffee] =useState([]);
     console.log(coffees)
+
+    useEffect(()=>{
+    fetch('https://the-coffee-collective-store.vercel.app/coffee')
+    .then(res => res.json())
+    .then(data =>{
+        setCoffee(data)
+        console.log('load useEffect data',data)
+    } )
+     
+    },[])
 
     return (
         <div>
@@ -34,6 +45,7 @@ const Home = () => {
                  <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 p-5 max-w-6xl mx-auto '>
                    
                 {
+                    // coffees && coffees.length &&
                     coffees.map(coffee =><Producet 
                     key={coffee._id} 
                     coffee={coffee} 
