@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -12,6 +12,8 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 const Register = () => {
 
     const{createUser,googleSignIn}= useContext(AuthContext);
+    const navigate =useNavigate();
+
 
     const [success,setSuccess] =useState('');
    const [registerError, setRegisterError] =useState('')
@@ -25,6 +27,8 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        event.target.reset();
+     
         console.log(name,photo,email,password);
         setSuccess('');
         setRegisterError('');
@@ -36,12 +40,15 @@ const Register = () => {
             return;
         }
 
+       
+
 
 
         // 
         createUser(email,password)
         .then(result =>{
             console.log(result.user)
+            navigate('/');
 
             setSuccess('Your login successfully')
             Swal.fire({
@@ -67,6 +74,7 @@ const Register = () => {
        googleSignIn()
        .then(result =>{
         console.log(result.user)
+        navigate('/');
 
         setSuccess('Your login successfully')
         Swal.fire({
@@ -134,8 +142,14 @@ const Register = () => {
            
            }</p>
            </div>
+
            
+
         </div>
+       
+
+
+
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
           <button onClick={handleGoogleSignIn} className="btn btn-outline btn-secondary mt-3">Google SignIn </button>

@@ -12,7 +12,7 @@ const Producet = ({coffee,coffees,setCoffee}) => {
 
     const handleDelete =(_id)=>{
 
-        console.log('confrome deleted id');
+        
 
         Swal.fire({
             title: "Are you sure?",
@@ -31,7 +31,7 @@ const Producet = ({coffee,coffees,setCoffee}) => {
             })
             .then(res => res.json())
             .then(data =>{
-                console.log(data)
+              
                 if(data.deletedCount>0){
                     Swal.fire({
                         title: "Deleted!",

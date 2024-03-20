@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -10,10 +10,14 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 const Login = () => {
+  const navigate =useNavigate();
+  
+
 
    const {signIn} =useContext(AuthContext)
 
     const [showPassword, setShowPassWord] =useState(false);
+    const emailRef =useRef(null);
 
 
      const handleLogin = e =>{
@@ -23,11 +27,13 @@ const Login = () => {
         const email = from.email.value;
         const password = from.password.value;
         console.log(email,password)
+        e.target.reset()
       
         // 
         signIn(email,password)
         .then(result =>{
             console.log(result.user)
+            navigate('/');
           
         })
         .cateh( error=>{
@@ -53,7 +59,14 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+          <input 
+            ref={emailRef}
+            type="email" 
+            name="email"
+            placeholder="email"
+            className="input input-bordered" 
+            required />
+
         </div>
         <div className="form-control">
           <label className="label">
